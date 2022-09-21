@@ -17,12 +17,17 @@ echo "$c + $a / $b = $third_computation"
 echo "$a % $b + $c = $fourth_computation"
 
 declare -A dictionary
+declare -a array
+
 dictionary[first_computation]=$first_computation
 dictionary[second_computation]=$second_computation
 dictionary[third_computation]=$third_computation
 dictionary[fourth_computation]=$fourth_computation
 
+index=0
 for computation in ${!dictionary[@]}
 do 
     echo "$computation = ${dictionary[$computation]}"
+    array[index++]=${dictionary[$computation]}
 done
+echo ${array[@]}
